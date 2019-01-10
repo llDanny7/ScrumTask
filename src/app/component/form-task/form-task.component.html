@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-12">
+		<h3> Crear Tarea</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 form-group">
+		<label for="projecto">Proyecto:</label>
+		<select class="form-control" id="projecto" [(ngModel)]="project">
+			<option *ngFor="let project of listProject" [value]="project.id"> {{project.name}} </option>
+		</select>
+	</div>
+	<div class="col-12 form-group">
+		<label for="cpTitle">Nombre:</label>
+		<input id="cpTitle" class="form-control" type="text" [(ngModel)]="name">
+	</div>
+
+	<div class="col-12 form-group">
+		<label for="prioridad">Prioridad</label>
+		<select class="form-control" id="prioridad" [(ngModel)]="prioridad">
+			<option value="0">Baja</option>
+			<option value="1">Media</option>
+			<option value="2">Alta</option>
+		</select>
+	</div>
+
+	<div class="col-12 form-group">
+		<label for="cpTitle">Descripción:</label>
+		<textarea id="cpTitle" class="form-control" type="text" [(ngModel)]="description" rows="3">
+    </textarea>
+	</div>
+	<div class="col-12 form-group">
+		<button class="btn btn-primary" (click)="submit()"> Guardar </button>
+	</div>
+</div>

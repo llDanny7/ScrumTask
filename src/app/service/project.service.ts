@@ -9,6 +9,11 @@ export class ProjectService {
 			localStorage.setItem("Project", "[]");
 	}
 
+	getAll() {
+		let listProject = JSON.parse(localStorage.getItem("Project")) as Project[];
+		return listProject;
+	}
+
 	add(project: Project) {
 		let listProject = JSON.parse(localStorage.getItem("Project")) as Project[];
 		if (this.existNameProject(project.name, listProject)) {
