@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../service/project.service'
+import { TaskService } from '../../service/task.service'
 import { Project } from '../../model/project'
+import { Task } from '../../model/task'
 
 @Component({
 	selector: 'form-task',
@@ -8,22 +10,22 @@ import { Project } from '../../model/project'
 	styleUrls: ['./form-task.component.css']
 })
 export class FormTaskComponent implements OnInit {
-	project: string;
-	name: string;
-	description: string;
-	prioridad: string;
+	task: Task = {};
+	// project: string;
+	// name: string;
+	// description: string;
+	// prioridad: string;
 	listProject: Project[] = [];
-	constructor(private projectService: ProjectService) { }
+	constructor(private projectService: ProjectService, private taskService: TaskService) { }
 
 	ngOnInit() {
 		this.listProject = this.projectService.getAll();
 	}
 
 	submit() {
-		console.log(this.project)
-		console.log(this.name)
-		console.log(this.description)
-		console.log(this.prioridad)
+		let resultado = this.taskService.add(this.task);
+		console.log(resultado);
+		this.task = {} as Task;
 	}
 
 }

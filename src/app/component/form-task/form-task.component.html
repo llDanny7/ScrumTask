@@ -7,18 +7,27 @@
 <div class="row">
 	<div class="col-12 form-group">
 		<label for="projecto">Proyecto:</label>
-		<select class="form-control" id="projecto" [(ngModel)]="project">
+		<select class="form-control" id="projecto" [(ngModel)]="task.idProject">
 			<option *ngFor="let project of listProject" [value]="project.id"> {{project.name}} </option>
 		</select>
 	</div>
 	<div class="col-12 form-group">
 		<label for="cpTitle">Nombre:</label>
-		<input id="cpTitle" class="form-control" type="text" [(ngModel)]="name">
+		<input id="cpTitle" class="form-control" type="text" [(ngModel)]="task.name">
+	</div>
+
+	<div class="col-12 form-group">
+		<label for="prioridad">Estado</label>
+		<select class="form-control" id="prioridad" [(ngModel)]="task.state">
+			<option value="0">Pendiente</option>
+			<option value="1">Proceso</option>
+			<option value="2">Finalizado</option>
+		</select>
 	</div>
 
 	<div class="col-12 form-group">
 		<label for="prioridad">Prioridad</label>
-		<select class="form-control" id="prioridad" [(ngModel)]="prioridad">
+		<select class="form-control" id="prioridad" [(ngModel)]="task.priority">
 			<option value="0">Baja</option>
 			<option value="1">Media</option>
 			<option value="2">Alta</option>
@@ -27,7 +36,7 @@
 
 	<div class="col-12 form-group">
 		<label for="cpTitle">Descripción:</label>
-		<textarea id="cpTitle" class="form-control" type="text" [(ngModel)]="description" rows="3">
+		<textarea id="cpTitle" class="form-control" type="text" [(ngModel)]="task.description" rows="3">
     </textarea>
 	</div>
 	<div class="col-12 form-group">

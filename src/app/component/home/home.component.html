@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-12 form-group">
+		<label for="projecto">Proyecto:</label>
+		<select class="form-control" id="projecto" [(ngModel)]="idProject" (ngModelChange)="onChangeProject($event)">
+			<option *ngFor="let project of listProject" [value]="project.id"> {{project.name}} </option>
+		</select>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<h3> Tareas Pendientes</h3>
+	</div>
+	<div class="col-sm-4 col-xs-12" *ngFor="let task of listTaskLow">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{{task.name}}</h5>
+				<p class="card-text">{{task.description}}</p>
+				<a href="#" class="btn btn-primary">Edit</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<h3> Tareas en Proceso</h3>
+	</div>
+	<div class="col-sm-4 col-xs-12" *ngFor="let task of listTaskMedium">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{{task.name}}</h5>
+				<p class="card-text">{{task.description}}</p>
+				<a href="#" class="btn btn-primary">Edit</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<h3> Tareas Finalizadas</h3>
+	</div>
+	<div class="col-sm-4 col-xs-12" *ngFor="let task of listTaskHigth">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">{{task.name}}</h5>
+				<p class="card-text">{{task.description}}</p>
+				<a href="#" class="btn btn-primary">Edit</a>
+				<a href="#" class="btn btn-danger">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
