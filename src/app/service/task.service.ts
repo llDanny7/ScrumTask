@@ -32,6 +32,24 @@ export class TaskService {
 		return "Se ha creado correctamente la tarea ";
 	}
 
+	updateState(task: Task) {
+		task.state += 1;
+		if (task.state > 2)
+			task.state = 2;
+		let listTask = JSON.parse(localStorage.getItem("Task")) as Task[];
+		let indexTask = listTask.map(task => task.id).indexOf(task.id);
+
+		listTask[indexTask] = task;
+		localStorage.setItem("Task", JSON.stringify(listTask));
+	}
+
+	delete(idTask: string) {
+		let listTask = JSON.parse(localStorage.getItem("Task")) as Task[];
+		let indexTask = listTask.map(task => task.id).indexOf(idTask);
+
+		listTask.splice(indexTask, 1);
+		localStorage.setItem("Task", JSON.stringify(listTask));
+	}
 	private existNameTask(name: string, listTask: Task[]) {
 		return !listTask.every(task => task.name != name);
 	}
