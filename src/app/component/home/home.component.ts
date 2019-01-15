@@ -11,15 +11,22 @@ import { Task } from '../../model/task'
 })
 export class HomeComponent implements OnInit {
 	idProject: string;
+	existProject: bool = true;
 	listProject: Project[] = [];
 	listTaskLow: Task[] = [];
 	listTaskMedium: Task[] = [];
 	listTaskHigth: Task[] = [];
+	listPriority: string[] = ["Bajo", "Medio", "Alto"]
 
 	constructor(private projectService: ProjectService, private taskService: TaskService) { }
 
 	ngOnInit() {
 		this.listProject = this.projectService.getAll();
+		console.log("entro por aqui")
+		console.log(this.listProject.length)
+		if (this.listProject.length == 0) {
+			this.existProject = false;
+		}
 	}
 
 	onChangeProject(idProject) {

@@ -21,12 +21,14 @@ export class TaskService {
 
 	add(task: Task) {
 		let listTask = JSON.parse(localStorage.getItem("Task")) as Task[];
-		if (this.existNameTask(task.name, listTask)) {
+		if (this.existNameTask(task.name, task.idProject, listTask)) {
 			return "Ya existe una tarea con este nombre";
 		}
 
 		task.id = this.uuidv4();
+		console.log(listTask.length)
 		listTask.push(task);
+		console.log(listTask.length)
 		localStorage.setItem("Task", JSON.stringify(listTask));
 
 		return "Se ha creado correctamente la tarea ";
@@ -50,8 +52,9 @@ export class TaskService {
 		listTask.splice(indexTask, 1);
 		localStorage.setItem("Task", JSON.stringify(listTask));
 	}
-	private existNameTask(name: string, listTask: Task[]) {
-		return !listTask.every(task => task.name != name);
+	private existNameTask(name: string, idProject: string, listTask: Task[]) {
+		let listProject = listTask.filter(task => task.idProject == idProject);
+		return !listProject.every(task => task.name != name);
 	}
 
 	private uuidv4() {

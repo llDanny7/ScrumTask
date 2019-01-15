@@ -12,3 +12,29 @@
 .botonRedondo:hover{
     background:#d21305;
 }
+
+.listTask{
+  margin-bottom: 20px;    
+}
+#tabTaskPending{
+  background-color: rgba(238, 219, 46, 0.808);
+  min-height: 100px;
+}
+
+#tabTaskProcess{
+  background-color: rgb(31, 77, 138);
+  min-height: 100px;
+}
+
+#tabTaskFinalized{
+  background-color: rgb(26, 161, 71);
+  min-height: 100px;
+}
+
+.tab-pane{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.messageAlert{
+  margin-top: 20px;
+}

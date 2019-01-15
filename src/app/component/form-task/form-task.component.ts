@@ -11,6 +11,8 @@ import { Task } from '../../model/task'
 })
 export class FormTaskComponent implements OnInit {
 	task: Task = {};
+	staticAlertClosed: bool = true;
+	messageResultAdd: string = "";
 	// project: string;
 	// name: string;
 	// description: string;
@@ -23,8 +25,8 @@ export class FormTaskComponent implements OnInit {
 	}
 
 	submit() {
-		let resultado = this.taskService.add(this.task);
-		console.log(resultado);
+		this.staticAlertClosed = false;
+		this.messageResultAdd = this.taskService.add(this.task);
 		this.task = {} as Task;
 	}
 
